@@ -6,7 +6,7 @@ Create a detailed test plan for the **Program list filtering and display** featu
 
 ## Description
 
-As an admin user, I want to see all programs in a clear list so that I can quickly find and manage them.
+As an admin user, I want to see all programs in clear list so that I can quickly find and manage them.
 
 ## Navigation
 

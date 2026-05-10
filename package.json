@@ -1,0 +1,24 @@
+{
+  "name": "ai_powered_qa_automation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RenaSh-hub/AI_powered_QA_automation.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/RenaSh-hub/AI_powered_QA_automation/issues"
+  },
+  "homepage": "https://github.com/RenaSh-hub/AI_powered_QA_automation#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.59.1"
+  }
+}

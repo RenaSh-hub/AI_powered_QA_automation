@@ -1,4 +1,7 @@
 import { defineConfig, devices } from "@playwright/test";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 export default defineConfig({
   testDir: "./tests",
@@ -7,7 +10,8 @@ export default defineConfig({
   reporter: "html",
   timeout: 60_000,
   use: {
-    baseURL: "https://playwright.dev",
+    baseURL: process.env.DIDAXIS_URL,
+    headless: true,
     trace: "on",
   },
   projects: [

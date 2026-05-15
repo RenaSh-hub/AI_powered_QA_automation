@@ -1,4 +1,4 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect, Page, Locator } from "@playwright/test";
 
 const BASE_URL = process.env.DIDAXIS_URL ?? "https://test.didaxis.studio";
 
@@ -28,6 +28,14 @@ async function openEditModal(page: Page, programName: string) {
   const modal = page.getByRole("dialog", { name: "Edit Program" });
   await expect(modal).toBeVisible();
   return modal;
+}
+
+/** Section may reopen expanded — only click Show when the section is collapsed. */
+async function expandAiConfigIfCollapsed(modal: Locator) {
+  const showBtn = modal.getByRole("button", { name: /Show AI Generation Config/ });
+  if (await showBtn.isVisible()) {
+    await showBtn.click();
+  }
 }
 
 test.beforeEach(async ({ page }) => {
@@ -104,7 +112,7 @@ test("TC-009 — Collapse/expand AI Generation Config does not drop unsaved edit
   await createProgram(page, name, "Config toggle test");
 
   const modal = await openEditModal(page, name);
-  await modal.getByRole("button", { name: /Show AI Generation Config/ }).click();
+  await expandAiConfigIfCollapsed(modal);
   await modal.getByRole("textbox", { name: "Focus Areas" }).fill("React; Node");
 
   await modal.getByRole("button", { name: /Hide AI Generation Config/ }).click();

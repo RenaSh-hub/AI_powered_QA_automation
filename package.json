@@ -20,7 +20,8 @@
   "homepage": "https://github.com/RenaSh-hub/AI_powered_QA_automation#readme",
   "devDependencies": {
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.7.0"
+    "@types/node": "^25.7.0",
+    "tsx": "^4.21.0"
   },
   "dependencies": {
     "dotenv": "^17.4.2"

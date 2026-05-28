@@ -1,4 +1,5 @@
-import { test, expect, Page } from "@playwright/test";
+import { test, expect, type Page } from "../fixtures/cleanup.fixture";
+import { createProgram } from "../support/create-program";
 
 const BASE_URL = process.env.DIDAXIS_URL ?? "https://test.didaxis.studio";
 
@@ -10,18 +11,6 @@ async function login(page: Page) {
   await page.waitForURL((url) => !url.pathname.includes("login"), {
     timeout: 30_000,
   });
-}
-
-async function createProgram(page: Page, name: string, description = "") {
-  await page.getByRole("button", { name: "+ New Program" }).click();
-  const modal = page.getByRole("dialog", { name: "New Program" });
-  await modal.getByRole("textbox", { name: "Program Name" }).fill(name);
-  if (description) {
-    await modal.getByRole("textbox", { name: "Description" }).fill(description);
-  }
-  await modal.getByRole("button", { name: "Create" }).click();
-  await expect(modal).not.toBeVisible();
-  await expect(page.getByText(name)).toBeVisible();
 }
 
 test.beforeEach(async ({ page }) => {

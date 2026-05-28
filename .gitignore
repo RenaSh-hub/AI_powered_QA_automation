@@ -1,7 +1,31 @@
+# Dependencies
 node_modules/
+
+# Secrets and local env (never commit credentials or API tokens)
 .env
+.env.local
+.env.*.local
+
+# Playwright run output
 test-results/
 playwright-report/
 blob-report/
+playwright/.cache/
+.last-run.json
+
+# Program cleanup tracker (runtime IDs from tests)
+.test-artifacts/
+
+# Playwright MCP / IDE tooling (local only)
 .playwright-mcp/
-tsconfig.json
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# Optional coverage if added later
+coverage/

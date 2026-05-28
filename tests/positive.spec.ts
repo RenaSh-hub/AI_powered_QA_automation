@@ -1,4 +1,4 @@
-import { test, expect } from "@playwright/test";
+import { test, expect } from "../fixtures/cleanup.fixture";
 
 const TODO_URL = "https://demo.playwright.dev/todomvc/#/";
 
